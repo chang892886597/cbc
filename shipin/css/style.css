@@ -1,0 +1,192 @@
+﻿body {
+    margin: 0;
+}
+
+.mainstyle1 {
+    margin: 0px auto;
+    background: url(../image/bg_05.png) no-repeat;
+    height: 728px;
+    width:1280px;
+    background-position: center center;
+    position: relative;
+    font-size: 12px;
+    overflow:hidden;
+}
+.bottom_log {
+margin-bottom:25px;
+}
+
+
+
+
+.mainstyle2 {
+    padding-top: 430px;
+    margin-left: 62px;
+    position: absolute;
+    color: #3B392D;
+}
+
+.requiretxt1 {
+    margin-right: 8px;
+}
+
+.requiretxt2 {
+    margin-left: 36px;
+}
+
+.requiretxt3 {
+    margin-left: 30px;
+}
+
+.requiretxt4 {
+    margin-left: 24px;
+}
+
+.requiretxt5 {
+    margin-left: 48px;
+    margin-right: 8px;
+}
+
+.fontspacing1 {
+    letter-spacing: 22px;
+    margin-right: -7px;
+}
+
+.txtwidth1 {
+    width: 154px;
+}
+
+.txtwidth2 {
+    width: 263px;
+}
+
+.txtwidth3 {
+    width: 154px;
+    margin-left: 10px;
+    margin-right: 6px;
+}
+
+.txtwidth4 {
+    width: 433px;
+    margin-left: 11px;
+}
+
+.txtwidth5 {
+    width: 314px;
+}
+
+.txtwidth6 {
+    width: 194px;
+    margin-left: 4px;
+    margin-right: 10px;
+}
+
+.divline {
+    height: 48px;
+    line-height: 34px;
+}
+
+.fontspacing2 {
+    letter-spacing: 1px;
+}
+
+.fontspacing3 {
+    letter-spacing: 1px;
+    line-height: 8px;
+    float: right;
+    margin-right: 10px;
+    /*margin-top:-34px;*/
+}
+
+.labeltxt {
+    margin-left: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.txtaretitle {
+    width: 15%;
+    float: left;
+}
+
+.txtarecontent {
+    float: left;
+    margin-top: 9px;
+}
+
+.clearfloat {
+    clear: both;
+}
+
+.btnround {
+    padding: 10px;
+    width: 300px;
+    height: 50px;
+    border: 5px solid #dedede;
+    -moz-border-radius: 15px; /* Gecko browsers */
+    -webkit-border-radius: 15px; /* Webkit browsers */
+    border-radius: 15px; /* W3C syntax */
+}
+
+.buttontop {
+    margin-top: 71px;
+}
+
+.buttonright {
+    margin-right: 2px;
+}
+
+.buttonleft {
+    margin-left: 29px;
+}
+
+.txtalign {
+    text-align: center;
+}
+
+.requiretxt6 {
+    font-weight: 600;
+}
+
+.error {
+    color: red;
+    font-weight: 600;
+    border-color:red;
+    border-width:1px;  
+}
+.uploadtext1 {
+    float:right;
+margin-top:-35px;
+margin-right:-38px;
+}
+.uploadtext2 {
+    float:right;
+margin-top:-35px;
+margin-right:-190px;
+}
+
+/*#imguUploadCrop1 div {
+    display: none;
+}
+
+#imguUploadCrop1 .help-upload {
+    display: block;
+}*/
+.labeltxtch1 {
+    margin-left: 12px;
+    font-weight: 600;
+    font-size: 14px;
+	color:#ae2930
+}
+.labeltxtch {
+    margin-left: 12px;
+    font-weight: 600;
+    font-size: 13px;
+}
+.clearmarginleft {
+    margin-left: 0px;
+}
+.help-upload {
+    float: right;
+    color: red;        
+}
