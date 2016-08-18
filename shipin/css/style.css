@@ -1,17 +1,25 @@
-﻿body {
-    margin: 0;
-}
+﻿body{height:100%; overflow:hidden; margin:0px; padding:0px;}
 
 .mainstyle1 {
     margin: 0px auto;
-    background: url(../image/bg_05.png) no-repeat;
-    height: 728px;
-    width:1280px;
+    background: url(../image/bg_05.jpg) no-repeat;
+    /*height:1200px;
+    width:1920px;*/
     background-position: center center;
-    position: relative;
+    /*position: relative;*/
     font-size: 12px;
-    overflow:hidden;
+    overflow:auto;
+
+    height:100%;  position:absolute; width:100%;
+    
+
 }
+.mainstyle2 {
+    background: url(../image/bg_top_05.png) no-repeat;
+    background-position: top right;
+}
+
+
 .bottom_log {
 margin-bottom:25px;
 }
@@ -19,12 +27,7 @@ margin-bottom:25px;
 
 
 
-.mainstyle2 {
-    padding-top: 430px;
-    margin-left: 62px;
-    position: absolute;
-    color: #3B392D;
-}
+
 
 .requiretxt1 {
     margin-right: 8px;
