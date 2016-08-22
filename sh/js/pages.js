@@ -1,4 +1,5 @@
-﻿function getJSONData(pn) {
+﻿
+function getJSONData(pn) {
     var dataUrl = $("#dataUrl").val();
     var detailsUrl = $("#detailsUrl").val();
     $.getJSON(dataUrl, function (data) {
@@ -47,6 +48,9 @@
                     + "</div></div>");
             }
         }
+
+        setTimeout("substrStr()", 300);
+
         $("#page-list span").removeClass("pagecurrent");
         $("#pageindex" + pn).addClass("pagecurrent");
     })
@@ -98,3 +102,7 @@ function gotoPage(pn) {
 $(function () {
     setTimeout("getPage()", 150);
 });
+
+function substrStr() {
+    $(".maincontent").dotdotdot();
+}
