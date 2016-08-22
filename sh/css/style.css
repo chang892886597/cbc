@@ -35,6 +35,7 @@ a { text-decoration: none; }
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    width:265px;
 }
 
 

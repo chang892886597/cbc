@@ -24,7 +24,7 @@ function getJSONData(pn) {
                     + "' target='_blank'>" + data[j].title
                     + "</a></div>").append("<div><strong>时长：</strong>" + data[j].timelength
                     + "分钟</div>").append("<div><strong>制作团队：</strong>" + data[j].team
-                    + "</div>").append("<div class='maincontent'><strong>内容介绍：</strong>" + data[j].content 
+                    + "</div>").append("<div class='maincontent'><strong>内容介绍：</strong>" + cutString(data[j].content,64,'.....')
                     + "</div></div>");
             }
         } else {
@@ -44,12 +44,11 @@ function getJSONData(pn) {
                     + "' target='_blank'>" + data[j].title
                     + "</a></div>").append("<div><strong>时长：</strong>" + data[j].timelength
                     + "分钟</div>").append("<div><strong>制作团队：</strong>" + data[j].team
-                    + "</div>").append("<div class='maincontent'><strong>内容介绍：</strong>" + data[j].content 
+                    + "</div>").append("<div class='maincontent'><strong>内容介绍：</strong>" + cutString(data[j].content, 64, '.....')
                     + "</div></div>");
             }
         }
 
-        setTimeout("substrStr()", 300);
 
         $("#page-list span").removeClass("pagecurrent");
         $("#pageindex" + pn).addClass("pagecurrent");
@@ -103,6 +102,22 @@ $(function () {
     setTimeout("getPage()", 150);
 });
 
-function substrStr() {
-    $(".maincontent").dotdotdot();
+function cutString(str, len, suffix) {
+    if (!str) return "";
+    if (len <= 0) return "";
+    if (!suffix) suffix = "";
+    var templen = 0;
+    for (var i = 0; i < str.length; i++) {
+        if (str.charCodeAt(i) > 255) {
+            templen += 2;
+        } else {
+            templen++
+        }
+        if (templen == len) {
+            return str.substring(0, i + 1) + suffix;
+        } else if (templen > len) {
+            return str.substring(0, i) + suffix;
+        }
+    }
+    return str;
 }
