@@ -24,7 +24,7 @@ function getJSONData(pn) {
                     + "' target='_blank'>" + data[j].title
                     + "</a></div>").append("<div><strong>时长：</strong>" + data[j].timelength
                     + "分钟</div>").append("<div><strong>制作团队：</strong>" + data[j].team
-                    + "</div>").append("<div class='maincontent'><strong>内容介绍：</strong>" + data[j].content
+                    + "</div>").append("<div class='maincontent'><strong>内容介绍：</strong>" + data[j].content 
                     + "</div></div>");
             }
         } else {
@@ -44,7 +44,7 @@ function getJSONData(pn) {
                     + "' target='_blank'>" + data[j].title
                     + "</a></div>").append("<div><strong>时长：</strong>" + data[j].timelength
                     + "分钟</div>").append("<div><strong>制作团队：</strong>" + data[j].team
-                    + "</div>").append("<div class='maincontent'><strong>内容介绍：</strong>" + data[j].content
+                    + "</div>").append("<div class='maincontent'><strong>内容介绍：</strong>" + data[j].content 
                     + "</div></div>");
             }
         }
