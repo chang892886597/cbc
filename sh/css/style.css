@@ -14,7 +14,7 @@ a { text-decoration: none; }
 .mainstyle1 { margin: 0px auto; background: url(../image/bg_05.jpg) no-repeat; background-position: center center; font-size: 12px; overflow: auto; height: 100%; position: absolute; width: 100%; }
 .mainstyle2 { background: url(../image/bg_top_05.png) no-repeat; background-position: top right; }
 .mainindex1 { margin: 0px auto; background: url(../image/index_bg_00.jpg) no-repeat; background-position: center center; font-size: 12px; overflow: auto; height: 100%; position: absolute; width: 100%; }
-.mainindex2 { background: url(../image/index_bg_01.jpg) no-repeat; background-position: top right; }
+.mainindex2 { background: url(../image/index_bg_01.png) no-repeat; background-position: top right; }
 .menuindex { float: right; margin-top: 50px; margin-right: 65px; }
     .menuindex img { margin-right: 65px; }
 /* 列表*/
