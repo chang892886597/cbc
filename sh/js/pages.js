@@ -21,7 +21,7 @@ function getJSONData(pn) {
                     + "' /></a></div>").append("<div class='mainlist5'><div class='mainlist6'><a href='" + detailsUrl
                     + ".html?id=" + data[j].id
                     + "' title='" + data[j].title
-                    + "' target='_blank'>" + data[j].title
+                    + "' target='_blank'>" + funTitle(data[j].title)
                     + "</a></div>").append("<div><strong>时长：</strong>" + data[j].timelength
                     + "分钟</div>").append("<div><strong>制作团队：</strong>" + data[j].team
                     + "</div>").append("<div class='maincontent'><strong>内容介绍：</strong>" + cutString(data[j].content,64,'.....')
@@ -41,7 +41,7 @@ function getJSONData(pn) {
                     + "' /></a></div>").append("<div class='mainlist5'><div class='mainlist6'><a href='" + detailsUrl
                     + ".html?id=" + data[j].id
                     + "' title='" + data[j].title
-                    + "' target='_blank'>" + data[j].title
+                    + "' target='_blank'>" + funTitle(data[j].title)
                     + "</a></div>").append("<div><strong>时长：</strong>" + data[j].timelength
                     + "分钟</div>").append("<div><strong>制作团队：</strong>" + data[j].team
                     + "</div>").append("<div class='maincontent'><strong>内容介绍：</strong>" + cutString(data[j].content, 64, '.....')
@@ -120,4 +120,12 @@ function cutString(str, len, suffix) {
         }
     }
     return str;
+}
+
+
+function funTitle(strTitle) {
+    if (strTitle.indexOf("《") < 0) {
+        strTitle = "&nbsp;&nbsp;" + strTitle;
+    }
+    return strTitle
 }

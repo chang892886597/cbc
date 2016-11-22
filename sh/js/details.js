@@ -15,6 +15,7 @@ function getJSONDataDetails(id) {
                 $("#team").html(data[j].team);
                 $(".msdescribe").html(data[j].content);
                 document.title = data[j].title;
+                $("#url").html("<script src='http://p.bokecc.com/player?vid=" + data[j].urlid + "&siteid=9D3BB32E53DC188E&autoStart=true&width=600&height=490&playerid=4E4E29988263EAB3&playertype=1' type='text/javascript'></script>");
                 break;
             }
         }
