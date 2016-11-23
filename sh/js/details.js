@@ -28,6 +28,6 @@ $(function () {
         id = 0;
     }
 
-    setTimeout("getJSONDataDetails("+id+")", 150);
+    setTimeout("getJSONDataDetails("+id+")", 600);
 
 });
