@@ -27,5 +27,7 @@ $(function () {
     if (id == null || id.length <= 0 || id <= 0) {
         id = 0;
     }
-    getJSONDataDetails(id);
+
+    setTimeout("getJSONDataDetails("+id+")", 150);
+
 });
