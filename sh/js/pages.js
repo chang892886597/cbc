@@ -1,8 +1,8 @@
 ﻿
 function getJSONData(pn) {
-    var dataUrl = $("#dataUrl").val();
+    //var dataUrl = $("#dataUrl").val();
     var detailsUrl = $("#detailsUrl").val();
-    $.getJSON(dataUrl, function (data) {
+    var data = dataUrl;
         var totalCount = data.length; // 总记录数  
         var pageSize = 6; // 每页显示几条记录  
         var pageTotal = Math.ceil(totalCount / pageSize); // 总页数  
@@ -52,12 +52,12 @@ function getJSONData(pn) {
 
         $("#page-list span").removeClass("pagecurrent");
         $("#pageindex" + pn).addClass("pagecurrent");
-    })
+  
 }
 function getPage() {
 
-    var dataUrl = $("#dataUrl").val();
-    $.getJSON(dataUrl, function (data) {
+    //var dataUrl = $("#dataUrl").val();
+    var data = dataUrl;
         pn = 1;
         var totalCount = data.length; // 总记录数  
         var pageSize = 6; // 每页显示几条记录  
@@ -90,7 +90,7 @@ function getPage() {
             }
         });
         gotoPage(pn);
-    })
+
 }
 function gotoPage(pn) {
     if (pn == null || pn.length <= 0 || pn <= 0) {
