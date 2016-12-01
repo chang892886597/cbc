@@ -1,0 +1,99 @@
+
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>用户注册</title>
+	<link type="image/x-icon" rel="shortcut icon" href="img/ofo_icon.png"/>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no'/>
+
+	<link rel="stylesheet" href="libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="js/common.js"></script>
+	
+    <style>
+		#xxx {
+			background-color:#f0f;
+		}
+	</style>
+	
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("#btnRegister").click(function () {
+			var userId = $("#input_user_id").prop("value");
+			var pwd = $("#input_user_passwd").prop("value");
+			var pwd2 = $("#input_user_passwd_second").prop("value");
+		
+			if (userId.length <= 0) {
+				alert("请输入用户名");
+				return;
+			}
+			
+			if (pwd.length <= 0) {
+				alert("请输入密码");
+				return;
+			}
+			
+			if (pwd != pwd2) {
+				alert("两次输入密码的密码不一致");
+				return;
+			}
+			
+			showLoading();
+			var url = "/ofo/user/register.do?" + "userName=" + userId + "&passwd=" + pwd;
+			$.getJSON(url, function(data) {
+				hideLoading();
+				if (data.statusCode == 1) {
+					alert("注册成功,请登录");
+					window.history.go(-1);
+				} else {
+					alert("错误:" + data.statusCode + "\n" + data.message);
+				}
+			});
+		});
+		
+		$("#btnBack").click(function () {
+			window.history.go(-1);
+		});
+	});
+	
+	</script>
+</head>
+<body>
+
+<div id="registerPage" data-role="page" data-title="用户注册">
+
+	<div role="main" class="ui-content">
+		<table align="center">
+			<tr>
+			<td >请输入帐号:</td>
+			<td style="width:150px;">
+				<input type="text" id="input_user_id"/>
+			</td>
+			</tr>
+			
+			<tr>
+			<td >请输入密码:</td>
+			<td style="width:150px;">
+				<input type="password" id="input_user_passwd"/>
+			</td>
+			</tr>
+			
+			<tr>
+			<td >请确认密码:</td>
+			<td style="width:150px;">
+				<input type="password" id="input_user_passwd_second"/>
+			</td>
+			</tr>
+		</table>
+		<button id="btnRegister" class="ui-btn">注册</button>
+		<button id="btnBack" class="ui-btn">返回</button>
+	</div><!-- /content -->
+	  
+	<script type="text/javascript">
+	</script>
+</div>
+
+</body>
+</html>
