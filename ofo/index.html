@@ -1,0 +1,229 @@
+
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>小黄查询</title>
+	<link type="image/x-icon" rel="shortcut icon" href="img/ofo_icon.png"/>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no'/>
+
+	<link rel="stylesheet" href="libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="libs/jquery.cookie/1.4.1/jquery.cookie.js"></script>
+	<script src="libs/underscore.js/1.7.0/underscore-min.js"></script>
+	<script src="libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="js/common.js"></script>
+	
+    <style>
+		#xxx {
+			background-color:#f0f;
+		}
+
+	</style>
+	
+	<script type="text/javascript">
+	var accessToken;
+	$(document).ready(function(){
+		accessToken = $.cookie('accessToken');
+	
+		// 设置tab切换逻辑
+		$("a[data-role=tab]").each(function () {  
+			var anchor = $(this);  
+			anchor.bind("click", function () {  
+				$.mobile.changePage(anchor.attr("href"), {  
+					transition: "none",  
+					changeHash: false  
+				});  
+				return false;  
+			});  
+		});  
+		  
+		$("div[data-role=page]").bind("pagebeforeshow", function (e, data) {  
+			$.mobile.silentScroll(0);  
+			$.mobile.changePage.defaults.transition = 'slide';  
+		});
+
+		$("#btnFind").click(function () {
+			var bikeId = $("#input_bike_id").prop("value");
+			
+			if ( bikeId.length <= 0) {
+				alert("请输入车号");
+				return;
+			}
+			
+			$("#result_listview").empty();
+			
+			showLoading();
+			var url = "/ofo/bike/find.do?" + "bikeName=" + bikeId;
+			$.getJSON(url, function(data) {
+				hideLoading();
+				if (data.statusCode == 1) {
+					var compiledTemplate = _.template($('#cellViewTemplate').html());
+					for (var i=0 ; i<data.data.passwdList.length ; i++) {
+						var bikePasswd = data.data.passwdList[i];
+						var cellView = compiledTemplate(bikePasswd);
+						$("#result_listview").append($(cellView));
+					}
+				} else {
+					alert("错误:" + data.statusCode + "\n" + data.message);
+				}
+			});
+		});
+		
+		
+		$("#btnAdd").click(function () {
+			if (accessToken != null && accessToken.length > 0) {
+				window.location.href = "addBike.html";
+			} else {
+				alert("请先登录");
+				window.location.href = "login.html";
+			}
+		});
+		
+		$(document).on("pagebeforeshow",function(){
+			accessToken = $.cookie('accessToken');
+		});
+	});
+	</script>
+</head>
+<body>
+
+<div id="defaultPage" data-role="page" data-title="小黄查询">
+  
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+		<table >
+			<td >请输入车号:</td>
+			<td style="width:100px;">
+				<input type="number" id="input_bike_id" name="search-restaurants" id="search-restaurants"/>
+			</td>
+			<td>
+				<button id="btnFind" class="ui-button d-state-highlight">查询</button>
+			</td>
+			<td>
+				<button id="btnAdd" class="ui-button d-state-highlight">添加</button>
+			</td>
+			</div>
+		</table>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<ul id="result_listview" data-role="listview" data-inset="true">
+		</ul>
+	</div><!-- /content -->
+
+	<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+		<div data-role="navbar">
+			<ul>  
+                <li><a href="#defaultPage" data-role="tab" data-icon="home" class="ui-btn-active ui-state-persist">首页</a></li>  
+                <li><a href="#myPage" data-role="tab" data-icon="gear">我的</a></li>
+            </ul>
+		</div>
+	</div><!-- /header -->
+</div>
+
+<div id="myPage" data-role="page" data-title="我的">
+
+	<div role="main" class="ui-content">
+		<div id="already_login" align="center" style="display:none">
+			<table>
+				<tr>
+				<td >
+					<label>帐号:</label>
+				</td>
+				<td>
+					<label id="user_id"/>
+				</td>
+				</tr>
+			</table>
+			
+			<button id="btnPasswd" class="ui-button d-state-highlight">修改密码</button>
+			<button id="btnLogout" class="ui-button d-state-highlight">退出</button>
+		</div>
+		
+		<div id="un_login" align="center">
+			<label >请先登录</label>
+			<button id="btnLogin" class="ui-button d-state-highlight">登录</button>
+			<button id="btnRegister" class="ui-button d-state-highlight">注册</button>
+		</div>
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+		<div data-role="navbar">
+			<ul>  
+                <li><a href="#defaultPage" data-role="tab" data-icon="home">首页</a></li>  
+                <li><a href="#myPage" data-role="tab" data-icon="gear" class="ui-btn-active ui-state-persist">我的</a></li>
+            </ul>
+		</div>
+	</div><!-- /header -->
+	
+	<script type="text/javascript">
+		$(document).on("pagebeforeshow","#myPage",function(){
+			accessToken = $.cookie('accessToken');
+			if (accessToken != null && accessToken.length > 0) {
+				$("#myPage #un_login").hide();
+				$("#myPage #already_login").show();
+				
+				var userInfo = $.cookie('userInfo');
+				if (userInfo != null) {
+					userInfo = JSON.parse(userInfo);
+					var userName = userInfo.userName;
+					$("#myPage #user_id").html(userName);
+				}
+				
+			} else {
+				$("#myPage #un_login").show();
+				$("#myPage #already_login").hide();
+			}
+		});
+
+		$("#myPage #btnLogin").click(function () {
+			window.location.href = "login.html";
+		});
+
+		$("#myPage #btnRegister").click(function () {
+			window.location.href = "register.html";
+		});
+		
+		$("#myPage #btnPasswd").click(function () {
+			window.location.href = "password.html";
+		});
+		
+		$("#myPage #btnLogout").click(function () {
+			accessToken = null;
+			$.removeCookie('accessToken');
+			$.removeCookie('userInfo');
+			$("#myPage #un_login").show();
+			$("#myPage #already_login").hide();
+		});
+	</script>
+</div>
+
+<script id="cellViewTemplate" type="text/template">
+
+	<li class="ui-btn ui-li-static">
+		<div>
+			<div style="float:left">
+				<%= passwd %>
+			</div>
+			
+			<% if(right == 1) {%>
+			<div style="float:left;background-color:#FD0;font-size:10px;padding:2px">
+				推荐
+			</div>
+			<%}%>
+			
+			<div style="float:right">
+				<span style="font-size:10px;">
+					赞(<%= good %>)
+				</span>
+				<span style="font-size:10px;">
+					踩(<%= bad %>)
+				</span>
+			</div>
+		</div>
+	</li>
+</script>
+
+</body>
+</html>
