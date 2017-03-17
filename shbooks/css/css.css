@@ -197,8 +197,8 @@ a:hover{ text-decoration: none;}
 .readRoom_list > li img{ margin-bottom: 20px;}
 .book_con{width: 1000px; margin: 20px auto; text-align: center;}
 .yjl_con{width: 1000px; margin: 50px auto; }
+.yjl_con .top_img{margin-bottom: 25px;}
 .yjl_con p{line-height: 30px; text-align: left; text-indent: 3rem; color: #666; font-size: 16px;}
-.yjl_con img { margin-bottom:30px;display: inline-block;width: 100%; }
 
 .user_reg table{ width: 100%;}
 .user_reg table tr{ height: 50px; line-height: 30px; }
