@@ -171,6 +171,7 @@ a:hover{ text-decoration: none;}
 .jz_jj_con_nr dl{ color: #42B6E7; font-size: 26px; letter-spacing: 3px;}
 .jz_jj_con_nr p{ color: #42B6E7; font-size: 26px; letter-spacing: 2px; text-align: center;}
 .jz_jj_con_nr .video_view{ width: 80%; margin: 0px auto; margin-top: 50px;}
+.jz_jj_con_nr .jz_jj_con_nr_title {text-align:left;}
 
 .jz_yd{ border-top: 2px solid #42B6E7;}
 .jz_yd_con{ width: 1000px; margin: 0px auto;}
@@ -197,6 +198,7 @@ a:hover{ text-decoration: none;}
 .book_con{width: 1000px; margin: 20px auto; text-align: center;}
 .yjl_con{width: 1000px; margin: 50px auto; }
 .yjl_con p{line-height: 30px; text-align: left; text-indent: 3rem; color: #666; font-size: 16px;}
+.yjl_con img { margin-bottom:30px;display: inline-block;width: 100%; }
 
 .user_reg table{ width: 100%;}
 .user_reg table tr{ height: 50px; line-height: 30px; }
