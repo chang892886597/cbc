@@ -67,9 +67,19 @@
     <div class="container new_lecture">
         <div class="jz_video_left">
 
-            <ul class="nava nav-tabsa" role="tablist">
-                <li class=""><a style="color: #42B6E7;">讲座视听室</a></li>
-                <li role="presentation"><a class="active" href="#">分类讲座</a></li>
+            <ul class="nava nav-tabsa" role="tablist" id="dropdown_menu">
+                <li class=""><a class="active">讲座视听室</a></li>
+                <li role="presentation">
+                    <a href="javascript:void(0)">分类讲座</a>
+                    <ul>
+                        <li><a class="active" href="jz_fl_list_01.html">时政<span>·</span>热点</a></li>
+                        <li><a href="jz_fl_list_01.html">经济<span>·</span>艺术</a></li>
+                        <li><a href="jz_fl_list_01.html">家庭<span>·</span>教育</a></li>
+                        <li><a href="jz_fl_list_01.html">科技<span>·</span>生活</a></li>
+                        <li><a href="jz_fl_list_01.html">社会<span>·</span>法律</a></li>
+                        <li><a style="margin-left: 34px;" href="jz_fl_list_01.html">其他</a></li>
+                    </ul>
+                </li>
                 <li role="presentation"><a href="jz_wj_list.html">微讲座</a></li>
                 <li role="presentation"><a href="jz_jj_list.html">精讲座</a></li>
                 <li role="presentation"><a href="jz_video.html">广播版</a></li>
@@ -170,7 +180,6 @@
         </div>
 
     </div>
-
     <!--foot-->
     <div class="container-fluid foot">
         <div class="container ">
@@ -182,6 +191,14 @@
     </div>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
+    <script>
+        $(document).ready(function () {
+            $('#dropdown_menu li').find('ul').slideToggle();
+            $('#dropdown_menu li').click(function () {
+                $(this).find('ul').slideToggle();
+                $(this).addClass('active').siblings('li').removeClass('active');
+            })
+        })
+    </script>
 </body>
 </html>
