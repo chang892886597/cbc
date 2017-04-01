@@ -6,10 +6,10 @@
 		<meta name="description" content="上图讲座">
     	<meta name="keywords" content="上图讲座">
    		<meta name="author" content="GHQ&&CBC">
-		<title>讲座视听室精讲内容页-上图讲座</title>
+		<title>登录-上图讲座</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" href="css/css.css" />
-		<link rel="stylesheet" href="css/video-js.min.css" />
+
 	<!--[if lt IE 9]>
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
@@ -22,9 +22,9 @@
 				<ul class="menu">
 				  <li ><a href="index.html">首页</a><span>/</span></li>
 				  <li ><a href="new_jz_list.html">最新讲座</a><span>/</span></li>
-				  <li ><a class="menu_action"  href="jz_video.html">讲座视听室</a><span>/</span></li>
+				  <li ><a href="jz_video.html">讲座视听室</a><span>/</span></li>
 				  <li ><a href="jz_read.html">讲座阅览室</a><span>/</span></li>
-				  <li ><a href="user.html">会员专区</a></li>
+				  <li ><a class="menu_action"   href="user.html">会员专区</a></li>
 				</ul>
 			</div>
 			<div class="row">
@@ -40,20 +40,28 @@
 				</div>
 			</div>
 		</div>
-		<!--video-->
-		<div class="jz_jj_con container-fluid">
-			<div class="container jz_jj_con_nr">
-				<dl>【南宫人文大讲堂】</dl>
-				<p>美学其实很好玩</p>
-				<div class="video_view">
-					<video id="example_video_1" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none" width="100%" height="100%"
-					      poster="http://video-js.zencoder.com/oceans-clip.png"
-					      data-setup="{}">
-						<source src="http://hc.yinyuetai.com/uploads/videos/common/CC2A01597296FFAFDD1D5645992F8733.mp4?sc=e3dd4873514a2c84&br=775&vid=2768615&aid=39072&area=ML&vst=0" type="video/mp4">
-					    <track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track><!-- Tracks need an ending tag thanks to IE9 -->
-					    <track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track><!-- Tracks need an ending tag thanks to IE9 -->
-					</video>
-				</div>
+		<!--logiin-->
+		<div class="login_con">
+			<div class="login_width">
+				<form>
+					<table>
+						<tr>
+							<td>用户名：</td>
+							<td><input type="text" /></td>
+						</tr>
+						<tr>
+							<td>密&nbsp;&nbsp;&nbsp;&nbsp;码：</td>
+							<td><input type="password" /></td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<span><a href="#">登录</a></span>
+								<span><a href="#">注册</a></span>
+							</td>
+							
+						</tr>
+					</table>
+				</form>
 			</div>
 		</div>
 		<!--foot-->
@@ -65,9 +73,25 @@
 		</div>
 		<script type="text/javascript" src="js/jquery.min.js" ></script>
 		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
-		
 		<script>
-			$('#example_video_1').bind('contextmenu',function() { return false; }); 
+		 $(document).ready(function(){
+		 	$('#pwd_edit').click(function(){
+		 		$('.info_meg').hide();
+		 		$('.pwd').show();
+		 		$('.user_reg_button').removeClass('hide');
+
+		 	});
+		 	$('#info_edit').click(function(){
+		 		$('.my_info_mid input').removeAttr('disabled');
+		 		$('.user_reg_button').removeClass('hide');
+		 		$('.my_info_mid input').css({'border':'1px solid #ccc','background':'#fff'});
+		 		$('.pwd').hide();
+		 		$('.info_meg').show();
+		 	});
+		 	
+		 	
+		 })
+			
 		</script>
 		
 	</body>
