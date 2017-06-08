@@ -112,7 +112,7 @@ $(function () {
         }
       }
 
-      $('.wrap').on('click', setRedBall(10));
+      $('.wrap').on('click', setRedBall(3));
 
 
     })
