@@ -1,0 +1,27 @@
+﻿* { font-family: "方正兰亭超细黑体","微软雅黑"; padding: 0px; }
+body { height: 100%; margin: 0px; padding: 0px; }
+a { text-decoration: none; }
+    a:link { color: #555; text-decoration: none; }
+    /* 未被访问的链接     */
+    a:visited { color: #555; }
+    /* 已被访问过的链接    */
+    a:hover { text-decoration: none; }
+    /* 鼠标悬浮在上的链接  */
+    a:active { color: #555; }
+/* 鼠标点中激活链接    */
+.index_bg { margin: 0px auto; background-position: center center; background: url(../image/index_bg.png) no-repeat center; font-size: 12px; overflow: auto; height: 720px; position: absolute; width: 1280px; }
+.menuindex { float: right; margin-top: 103px; margin-right: 32px; }
+    .menuindex img { margin-right: 25px; }
+.mainlist1 { margin: 0px auto; background: url(../image/wendao.png) no-repeat; background-position: center center; font-size: 12px; overflow: auto; height: 100%; position: absolute; width: 100%; }
+
+
+.list_item { margin-top: 7px; width: 512px; background: url("../image/row_bg_001.png") no-repeat; height: 39px; line-height: 31px; }
+.list_item_left { float: left; margin-left: 32px; font-size: 15px; }
+.list_item_right { float: right; }
+    .list_item_right img { margin-top: 6px; margin-right: 58px; }
+/* 向右的箭头 */
+.dot-right { vertical-align: middle; font-size: 0; line-height: 0; border-width: 6px; border-color: black; border-right-width: 0; border-style: dashed; border-left-style: solid; border-top-color: transparent; border-bottom-color: transparent; }
+/* 向左的箭头 */
+.dot-left { vertical-align: middle; font-size: 0; line-height: 0; border-width: 6px; border-color: black; border-left-width: 0; border-style: dashed; border-right-style: solid; border-top-color: transparent; border-bottom-color: transparent; margin-right: 23px; }
+.pagelist { margin-top: 38px; width: 512px; text-align: center; cursor: pointer; }
+.pagenum { margin-right: 18px; vertical-align: middle; font-size: 16px; cursor: pointer; }
